@@ -1,0 +1,8 @@
+#!/bin/bash
+NAVN=$1
+if [[ $NAVN == "Martin" ]]
+then 
+  echo "Woo"
+else 
+  echo "Åh..."
+fi

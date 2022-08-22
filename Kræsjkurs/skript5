@@ -1,0 +1,5 @@
+#!/bin/bash
+for a in $(seq 10)
+do 
+  echo "$a * 2 = $((a * 2))"
+done

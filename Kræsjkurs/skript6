@@ -1,0 +1,5 @@
+#!/bin/bash
+export A="Hei"
+echo "$A fra skript6"
+./skript7
+echo "Tilbake til skript6: $A"

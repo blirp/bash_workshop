@@ -18,27 +18,16 @@ Dette betyr at vi kan ta en strøm av tekst (for eksempel innholdet i en fil) og
 
 Bash er egentlig et veldig enkelt program. Det gir mulighet til å starte programmer, sende dem innputt og ta vare på resultatet i variabler. Det kan også redirigere resultatet videre til neste program. I tillegg har bash en enkel kontrollflyt med if/case/select og løkker med for/while/until. Til slutt er det en minimal støtte for å gruppere en rekke operasjoner i en privat funksjon. Totalt sett har Bash [22 reserverte ord](https://www.gnu.org/software/bash/manual/html_node/Reserved-Words.html), og to av dem er kun reserverte hvis de oppstår på spesielle plasser i forhold til andre reserverte ord.
 
-Men selv med dette enkle oppsettet, fungerer bash som limet mellom alle de små programmene som utgjør en vanlig Unix/Linux distribusjon. 
+Men selv med dette enkle oppsettet, fungerer bash som limet mellom alle de små programmene som utgjør en vanlig Unix/Linux distribusjon.
+
 
 ## Oppgaver ##
 
-Hvis Bash er helt ukjent, kan litt info om struktur og kommandoer finnes i [Kræsjkurs.md](Kr%C3%A6sjkurs.md).
+Det er tre sett med oppgaver i økende vanskelighetsgrad:
 
-Utover det er [DuckDuckGo](http://duckduckgo.com) din venn.
+* [Kræsjkurs.md](Kr%C3%A6sjkurs.md) - Dette er for deg som aldri har brukt Bash. Alle skriptene er ferdig skrevne, men du kan eksperimentere litt med de forskjellige for å se på hvordan det virker.
+* [Enkel nytte](EnkelNytte.md) - Dette er for deg som enten har vært igjennom `Kræsjkurset`, eller som har prøvd deg litt før. Oppgavene går ut på å lage noen nokså enkle skript for en gitt git-flyt.
+* [Moro](Moro.md) - Dette er for deg som har jobbet med Bash før, eller som har vært igjennom `Enkel nytte`. Oppgaven er å bruke Bash til å kalle på et REST API, parse resultatet og bruke det videre til nye kall.
 
-Noe av det vanligste å bruke Bash skripting til, er å automatisere vanlige operasjoner. En av de vanligste vi utviklere gjør er å bruke git. Ettersom git er så fleksibelt, lager alle sin egen arbeidsflyt. Det betyr egne regler for hovran git skal brukes i akkurat det prosjektet. Mao. et perfekt eksempel for å lage noen enkle skript.
 
-Skriptet 'setUp.sh' starter opp en instans av GitLab ved hjelp av Docker. Deretter startes et skript som gjør diverse git-kommandoer som å lage brancher, legge til filer, redigere filer og merge brancher. Alt dette gjøres som brukeren 'annen'. Din jobb, som brukeren 'du', er å lage skript for å jobbe med dine egne brancher samtidig.
-
-Branchene dine bør begynne med du
-
-### Oppgave 1 ###
-
-gitk gir et enkelt grafisk bilde av et git repo. De to vanligste er å se på aktiv branch sammen med 'main', eller å se på alle brancher for totalt kaos.
-
-#1 Lag et skript som viser aktiv branch sammen med main.
-
-#2 Utvid skriptet slik at hvis det får parametre, så sendes de til gitk, mens hvis det ikke er parametre, vises aktiv branch og main
-
-#3 Utvid skriptet til å håndtere at default branch heter noe annet enn 'main'.
-
+Lykke til!

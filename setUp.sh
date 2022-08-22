@@ -35,6 +35,8 @@ echo .
 
 echo "Oppretter buker 'du'"
 DEG_ID=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-type: application/json' -d '{"email":"degselv@example.com", "name": "Deg Selv", "username": "du", "password": "password", "skip_confirmation": true}' $GITLAB_URL/api/v4/users  | jq '.id')
+echo "Oppretter buker 'team'"
+TEAM_ID=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-type: application/json' -d '{"email":"teammedlem@example.com", "name": "Team Medlem", "username": "team", "password": "password", "skip_confirmation": true}' $GITLAB_URL/api/v4/users  | jq '.id')
 echo "Oppretter buker 'annen'"
 ANNEN_ID=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-type: application/json' -d '{"email":"annenbruker@example.com", "name": "Annen Bruker", "username": "annen", "password": "password", "skip_confirmation": true}' $GITLAB_URL/api/v4/users  | jq '.id')
 
@@ -45,7 +47,7 @@ function hentProsjektet
 
 PROSJEKT_FINNES=$(hentProsjektet | jq '.id')
 if [[ -n $PROSJEKT_FINNES ]]; then
-  printf "Sletter Prosjektet"
+  echo "Sletter Prosjektet"
   curl -s -o /dev/null -X DELETE -H "Authorization: Bearer $TOKEN" "$GITLAB_URL/api/v4/projects/root%2fProsjektet"
 fi
 
@@ -71,10 +73,27 @@ echo "Slår av beskyttelse på 'main'"
 curl -s -o /dev/null -X DELETE -H "Authorization: Bearer $TOKEN" "$GITLAB_URL/api/v4/projects/$PROSJEKT_ID/protected_branches/main"
 
 echo "Legger til brukere på prosjektet"
-curl -s -o /dev/null -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-type: application/json' -d "{\"user_id\":\"$DEG_ID,$ANNEN_ID\", \"access_level\": 40}" "$GITLAB_URL/api/v4/projects/$PROSJEKT_ID/members"
-
+curl -s -o /dev/null -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-type: application/json' -d "{\"user_id\":\"$DEG_ID,$ANNEN_ID,$TEAM_ID\", \"access_level\": 40}" "$GITLAB_URL/api/v4/projects/$PROSJEKT_ID/members"
 
 rm -rf ditt
 git clone http://du:password@${GITLAB_HOST}/root/Prosjektet.git ditt
 
-#./oppdaterAnnen &
+cd ditt
+
+git config user.name "Deg Selv"
+git config user.email "degselv@example.com"
+
+cd ..
+
+rm -rf team
+git clone http://team:password@${GITLAB_HOST}/root/Prosjektet.git team
+
+cd team
+
+git config user.name "Team Medlem"
+git config user.email "teammedlem@example.com"
+
+cd ..
+
+
+./oppdater.sh annen

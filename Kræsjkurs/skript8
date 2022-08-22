@@ -1,0 +1,11 @@
+#!/bin/bash
+A="Hei"
+echo "$A fra skript8"
+function funksjon
+{
+  echo "$A fra funksjon"
+  A="Dingding"
+  echo "Ny $A fra funksjon"    
+}
+funksjon
+echo "Tilbake til skript8: $A"

@@ -1,0 +1,2 @@
+NAVN="Martin"
+echo "Hei på deg, $NAVN!"

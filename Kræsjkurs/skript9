@@ -1,0 +1,17 @@
+#!/bin/bash
+function funksjon
+{
+  local FIL="$1"
+  if [ -f "$FIL" ]; then
+    cat "$FIL"
+    return 1
+  fi
+  echo "$FIL finnes ikke"
+  exit 2
+}
+A=$(funksjon "$1")
+echo "Etter første: $?"
+echo "A: '$A'"
+
+funksjon "$1"
+echo "Etter andre: $?"

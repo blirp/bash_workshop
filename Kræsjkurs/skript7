@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "$A fra skript7"
+export A="Dingding"
+echo "Ny $A fra skript7"

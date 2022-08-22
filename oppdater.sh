@@ -8,6 +8,11 @@ function main
     initAnnen
   fi
 
+  if [[ $(basename $PWD) != "annen" && $(basename $PWD) != "ditt" ]]; then
+    echo "Kjørt fra feil katalog: $PWD"
+    exit 2
+  fi
+
   while true; do
     RND=$((1 + RANDOM % 6))
     case $RND in
