@@ -25,7 +25,7 @@ Men selv med dette enkle oppsettet, fungerer bash som limet mellom alle de små 
 
 Det er tre sett med oppgaver i økende vanskelighetsgrad:
 
-* [Kræsjkurs.md](Kr%C3%A6sjkurs.md) - Dette er for deg som aldri har brukt Bash. Alle skriptene er ferdig skrevne, men du kan eksperimentere litt med de forskjellige for å se på hvordan det virker.
+* [Krasjkurs.md](Krasjkurs/Krasjkurs.md) - Dette er for deg som aldri har brukt Bash. Alle skriptene er ferdig skrevne, men du kan eksperimentere litt med de forskjellige for å se på hvordan det virker.
 * [Enkel nytte](EnkelNytte.md) - Dette er for deg som enten har vært igjennom `Kræsjkurset`, eller som har prøvd deg litt før. Oppgavene går ut på å lage noen nokså enkle skript for en gitt git-flyt.
 * [Moro](Moro.md) - Dette er for deg som har jobbet med Bash før, eller som har vært igjennom `Enkel nytte`. Oppgaven er å bruke Bash til å kalle på et REST API, parse resultatet og bruke det videre til nye kall.
 
