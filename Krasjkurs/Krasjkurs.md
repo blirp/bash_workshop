@@ -46,7 +46,7 @@ Hei på deg, Martin
 ```
 Bash har også muligheten til å definere skript som selv-kjørende. Dette krever to steg, det første er at den første linjen i filen er en spesiell kommentar:
 ```bash
-#!/bin/Bash
+#!/bin/bash
 ```
 Dette betyr at denne filen kan tolkes med programmet /bin/bash. Andre muligheter, som /bin/python3, er også mulige. Det neste steget er å markere filen som kjørbar:
 ```bash
