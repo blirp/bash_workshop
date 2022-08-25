@@ -62,7 +62,7 @@ function tolkKommandolinje
 function initAnnen
 {
   rm -rf annen
-  git clone http://annen:password@gitlab.kantega.lab/root/Prosjektet.git annen
+  git clone http://annen:password@localhost/root/Prosjektet.git annen
   cd annen
 
   git config user.name "Annen Bruker"
